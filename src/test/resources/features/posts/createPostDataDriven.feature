@@ -1,6 +1,11 @@
 Feature: Create posts data driven
 
-Scenario Outline: Create post with Data Driven Test
+  Background:
+    * configure logPrettyRequest = true
+    * configure logPrettyResponse = true
+
+ @test
+  Scenario Outline: Create post with Data Driven Test with logs
 
 Given url baseUrl + '/posts'
 And request { title: '<title>', body: '<body>', userId: <userId> }

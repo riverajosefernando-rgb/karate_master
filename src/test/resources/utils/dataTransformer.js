@@ -1,15 +1,7 @@
-function fn(data){
+function fn(x) {
 
-  var result = [];
+  x.timestamp = new Date().getTime();
 
-  for(var i = 0; i < data.length; i++){
+  return x;
 
-      var item = data[i];
-
-      item.timestamp = new Date().getTime();
-
-      result.push(item);
-  }
-
-  return result;
 }
