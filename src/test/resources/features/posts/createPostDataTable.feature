@@ -1,13 +1,23 @@
 Feature: Create post with transformed data
 
   @smoke
-  Scenario Outline: Create post advance with datatable wint print
+  Scenario Outline: Create post advance with datatable with print
 
     Given url baseUrl + '/posts'
-    And request { title: <title>, body: <body>, userId: <userId>, timestamp: <timestamp> }
 
-    * print 'REQUEST:', request
+    * def payload =
+    """
+    {
+      title: <title>,
+      body: <body>,
+      userId: <userId>,
+      timestamp: <timestamp>
+    }
+    """
 
+    * print 'REQUEST:', payload
+
+    And request payload
     When method POST
 
     * print 'RESPONSE:', response

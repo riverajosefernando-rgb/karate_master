@@ -26,12 +26,6 @@ dependencies {
 }
 
 test {
-    useJUnitPlatform()
-    // Ejecutar test en paralelo
-   // systemProperty "karate.options", "--threads 3"
-}
-
-test {
 
     useJUnitPlatform()
 
