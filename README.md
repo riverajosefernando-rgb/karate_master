@@ -317,6 +317,20 @@ Parallel execution:
 ```
 gradlew test -Pthreads=3
 ```
+If you prefer not to manually set the number of threads, you can allow the machine to automatically determine the optimal count based on the available CPU cores.
+To enable this behavior, simply comment out the following line in the configuration file
+
+```
+def threads = project.findProperty("threads") ?: "1"
+```
+
+And uncomment out this one: 
+
+```
+def threads = project.findProperty("threads") ?: Runtime.runtime.availableProcessors()
+```
+
+Tests can run in parallel using Gradle.
 
 ---
 
